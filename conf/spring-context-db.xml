@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:aop="http://www.springframework.org/schema/aop"
+    xsi:schemaLocation="
+            http://www.springframework.org/schema/beans
+            http://www.springframework.org/schema/beans/spring-beans.xsd
+            http://www.springframework.org/schema/aop
+            http://www.springframework.org/schema/aop/spring-aop.xsd"
+            >
+    
+    <bean id="dataSource" class="org.logicalcobwebs.proxool.ProxoolDataSource">
+        <property name="alias">
+            <value>dataSource</value>
+        </property>
+        <property name="driver">
+            <value>${jdbc.driver}</value>
+        </property>
+        <property name="driverUrl">
+            <value>${jdbc.url}</value>
+        </property>
+        <property name="user">
+            <value>${jdbc.username}</value>
+        </property>
+        <property name="password">
+            <value>${jdbc.password}</value>
+        </property>
+        <property name="maximumConnectionCount">
+            <value>${jdbc.maxPoolSize}</value>
+        </property>
+        <property name="minimumConnectionCount">
+            <value>${jdbc.minPoolSize}</value>
+        </property>
+        <property name="prototypeCount">
+            <value>${jdbc.prototypeCount}</value>
+        </property>
+        <property name="trace">
+            <value>${jdbc.trace}</value>
+        </property>
+        <property name="verbose">
+            <value>${jdbc.verbose}</value>
+        </property>
+        <property name="maximumActiveTime">
+            <value>${jdbc.maximumActiveTime}</value>
+        </property>
+        <property name="houseKeepingTestSql">
+            <value>${jdbc.houseKeepingTestSql}</value>
+        </property>
+        <property name="simultaneousBuildThrottle">
+            <value>${jdbc.simultaneousBuildThrottle}</value>
+        </property>
+    </bean>
+    
+    <bean id="transactionManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
+    	<property name="dataSource" ref="dataSource" />
+    </bean><!--
+    
+    <bean id="transactionInterceptor" class="org.springframework.transaction.interceptor.TransactionProxyFactoryBean">
+        <property name="transactionManager">
+            <ref bean="transactionManager"/>
+        </property>
+        <property name="transactionAttributes">
+            <props>
+                <prop key="insert*">PROPAGATION_REQUIRED</prop>
+                <prop key="update*">PROPAGATION_REQUIRED</prop>
+                <prop key="delete*">PROPAGATION_REQUIRED</prop>
+                <prop key="*">PROPAGATION_REQUIRED,readOnly</prop>
+            </props>
+        </property>
+    </bean>
+	
+	<bean class="org.springframework.aop.framework.autoproxy.BeanNameAutoProxyCreator">  
+        <property name="beanNames">  
+            <list>  
+                <value>IDataBase*</value>
+            </list>  
+        </property>  
+        <property name="interceptorNames">  
+            <list>  
+                <value>transactionInterceptor</value>  
+            </list>  
+        </property> 
+        <property name="target" ref="dbimpl" />  
+    </bean>  
+    
+    --><bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
+        <property name="dataSource">
+            <ref bean="dataSource"/>
+        </property>
+        <property name="configLocation">
+            <value>./conf/mybatis-config_${jdbc.dbtype}.xml</value>
+        </property>
+        <property name="mapperLocations" value="./conf/mappers/*Mapper.xml" />
+    </bean>
+
+</beans>

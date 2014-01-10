@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:aop="http://www.springframework.org/schema/aop"
+    xsi:schemaLocation="
+            http://www.springframework.org/schema/beans
+            http://www.springframework.org/schema/beans/spring-beans.xsd
+            http://www.springframework.org/schema/aop
+            http://www.springframework.org/schema/aop/spring-aop.xsd"
+            >
+    <aop:config>
+        <aop:aspect id="TestAspect" ref="aspectBean">
+            <!--配置com.spring.service包下所有类或接口的所有方法-->
+            <aop:pointcut id="businessService"
+                expression="execution(* com.spring.services.*.*(..))" />
+            <aop:before pointcut-ref="businessService" method="doBefore"/>
+            <aop:after pointcut-ref="businessService" method="doAfter"/>
+            <aop:around pointcut-ref="businessService" method="doAround"/>
+            <aop:after-throwing pointcut-ref="businessService" method="doThrowing" throwing="ex"/>
+        </aop:aspect>
+    </aop:config>
+    
+    <bean id="aspectBean" class="com.spring.aop.TestAspect" />
+    
+    <bean id="propertyConfigurer" class="com.spring.configuration.ConfigLoader">
+    	<property name="ignoreResourceNotFound" value="true" />
+        <property name="locations">
+            <list>
+                <value>./conf/conf.properties</value>
+            </list>
+        </property>
+    </bean>
+    
+    <bean id="forgemc" class="com.assemsoft.forge.core.ForgeMC"/>
+    
+</beans>

@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN//EN" "http://www.springframework.org/dtd/spring-beans.dtd">
+
+<beans default-lazy-init="true">
+
+	<bean id="registerservices" class="com.assemsoft.forge.util.RegisterService">
+        <property name="services">
+            <list>
+                <ref bean="dbservice" />
+                <ref bean="sender" />
+            </list>
+        </property>
+    </bean>
+    
+    <bean id="dbservice" class="com.assemsoft.forge.database.DbService" />
+    <bean id="sender" class="com.assemsoft.forge.net.Sender" />
+    
+</beans>
+

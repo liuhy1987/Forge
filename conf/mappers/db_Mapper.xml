@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.assemsoft.forge.database.instances.IDataBase">
+
+	<resultMap type="com.assemsoft.forge.model.NE" id="ne">
+		<id property="id" column="id" />
+		<result property="nodeid" column="nodeid" />
+		<result property="userlabel" column="userlabel" />
+		<result property="netype" column="netype" />
+	</resultMap>
+
+	<select id="getAllManagedElements" resultMap="ne">
+		select id,nodeid,userlabel,netype from dev_me
+	</select>
+
+</mapper>  
