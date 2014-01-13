@@ -6,7 +6,7 @@ package com.assemsoft.forge.services;
 import java.util.concurrent.ArrayBlockingQueue;
 
 import com.assemsoft.forge.model.Task;
-import com.assemsoft.forge.queen.TaskQueen;
+import com.assemsoft.forge.queue.TaskQueue;
 import com.spring.configuration.ConfigLoader;
 
 /**
@@ -39,11 +39,11 @@ public abstract class AbsService implements IService,Runnable {
 	    }
 	}
 	/** put all unprocessed task to taskqueen */
-	TaskQueen.getInstance().addAll(currenttask);
+	TaskQueue.getInstance().addAll(currenttask);
     }
     
     public void sendTask(Task task){
-	TaskQueen.getInstance().add(task);
+	TaskQueue.getInstance().add(task);
     }
     
     public abstract boolean process(Task task, AbsService service);

@@ -1,4 +1,4 @@
-package com.assemsoft.forge.queen;
+package com.assemsoft.forge.queue;
 
 import java.util.Collection;
 import java.util.concurrent.ArrayBlockingQueue;
@@ -6,23 +6,23 @@ import java.util.concurrent.ArrayBlockingQueue;
 import com.assemsoft.forge.model.Task;
 import com.spring.configuration.ConfigLoader;
 
-public class TaskQueen {
+public class TaskQueue {
 
     /* data queen */
     private final ArrayBlockingQueue<Task> queen;
     
     /* construct a singleton instance */
-    private static TaskQueen mq = null;
-    private TaskQueen() {
+    private static TaskQueue mq = null;
+    private TaskQueue() {
 
 	/* init queens */
 	queen = new ArrayBlockingQueue<Task>(Integer.parseInt(ConfigLoader.getContextProperty("task.queen")));
 
     }
 
-    public static synchronized TaskQueen getInstance() {
+    public static synchronized TaskQueue getInstance() {
 	if (mq == null) {
-	    mq = new TaskQueen();
+	    mq = new TaskQueue();
 	}
 	return mq;
     }

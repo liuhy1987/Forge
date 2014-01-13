@@ -5,7 +5,7 @@ package com.assemsoft.forge.managers;
 
 import com.assemsoft.forge.core.ServiceFactory;
 import com.assemsoft.forge.model.Task;
-import com.assemsoft.forge.queen.TaskQueen;
+import com.assemsoft.forge.queue.TaskQueue;
 import com.assemsoft.forge.services.IService;
 
 /**
@@ -14,10 +14,10 @@ import com.assemsoft.forge.services.IService;
 public abstract class AbsManager extends Thread {
     
     private ServiceFactory fmc = null;
-    private TaskQueen queen;
+    private TaskQueue queen;
     private boolean isrunning = true;
 
-    public AbsManager(String name, ServiceFactory fmc, TaskQueen queen){
+    public AbsManager(String name, ServiceFactory fmc, TaskQueue queen){
 	super(name);
 	this.fmc = fmc;
 	this.queen = queen;
