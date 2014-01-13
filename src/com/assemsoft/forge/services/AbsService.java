@@ -33,7 +33,7 @@ public abstract class AbsService implements IService,Runnable {
 	while(isrunning){
 	    try {
 		Task task = currenttask.take();
-		process(task);
+		process(task, this);
 	    } catch (InterruptedException ex) {
 		ex.printStackTrace();
 	    }
@@ -46,5 +46,5 @@ public abstract class AbsService implements IService,Runnable {
 	TaskQueen.getInstance().add(task);
     }
     
-    public abstract boolean process(Task task);
+    public abstract boolean process(Task task, AbsService service);
 }

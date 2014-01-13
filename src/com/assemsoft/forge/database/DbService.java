@@ -36,7 +36,7 @@ public class DbService extends AbsService{
     }
 
     @Override
-    public boolean process(Task task) {
+    public boolean process(Task task, AbsService service) {
 	
 	boolean ret = true;
 	

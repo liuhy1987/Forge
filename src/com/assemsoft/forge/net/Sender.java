@@ -15,7 +15,7 @@ public class Sender extends AbsService {
      * @see com.assemsoft.forge.services.AbsService#process(com.assemsoft.forge.model.Task)
      */
     @Override
-    public boolean process(Task task) {
+    public boolean process(Task task, AbsService service) {
 	System.out.println(task.getData());
 	return true;
     }
