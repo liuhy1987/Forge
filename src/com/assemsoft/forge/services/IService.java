@@ -14,7 +14,7 @@ public interface IService {
      * service name
      * @return
      */
-    public String getServiceName();
+    public String getName();
     
     /***
      * domain
@@ -22,7 +22,7 @@ public interface IService {
      */
     public String getDomain();
 
-    public String getServiceDescription();
+    public String getDescription();
 
     public void init();
     

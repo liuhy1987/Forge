@@ -32,7 +32,7 @@ public class Sender extends AbsService {
      * @see com.assemsoft.forge.services.IService#getServiceDescription()
      */
     @Override
-    public String getServiceDescription() {
+    public String getDescription() {
 	return "Sender";
     }
 
@@ -40,7 +40,7 @@ public class Sender extends AbsService {
      * @see com.assemsoft.forge.services.IService#getServiceName()
      */
     @Override
-    public String getServiceName() {
+    public String getName() {
 	return "Sender";
     }
 

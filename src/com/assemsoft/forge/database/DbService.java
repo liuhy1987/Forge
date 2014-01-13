@@ -21,12 +21,12 @@ public class DbService extends AbsService{
     }
 
     @Override
-    public String getServiceDescription() {
+    public String getDescription() {
 	return "DbService H2";
     }
 
     @Override
-    public String getServiceName() {
+    public String getName() {
 	return "DbService";
     }
 

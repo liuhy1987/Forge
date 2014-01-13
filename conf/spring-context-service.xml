@@ -3,12 +3,16 @@
 
 <beans default-lazy-init="true">
 
-	<bean id="registerservices" class="com.assemsoft.forge.util.RegisterService">
-        <property name="services">
-            <list>
+	<bean id="servicefactory" class="com.assemsoft.forge.core.ServiceFactory">
+        <property name="reg">
+            <!--<list>
                 <ref bean="dbservice" />
                 <ref bean="sender" />
-            </list>
+            </list>-->
+            <map>
+				<entry key="DbService" value-ref="dbservice" />
+				<entry key="Sender" value-ref="sender" />
+		    </map>
         </property>
     </bean>
     
