@@ -3,7 +3,7 @@
  */
 package com.assemsoft.forge.net;
 
-import com.assemsoft.forge.model.Task;
+import com.assemsoft.forge.queue.Task;
 import com.assemsoft.forge.services.AbsService;
 
 /**

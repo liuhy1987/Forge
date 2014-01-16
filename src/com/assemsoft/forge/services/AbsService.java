@@ -5,7 +5,7 @@ package com.assemsoft.forge.services;
 
 import java.util.concurrent.ArrayBlockingQueue;
 
-import com.assemsoft.forge.model.Task;
+import com.assemsoft.forge.queue.Task;
 import com.assemsoft.forge.queue.TaskQueue;
 import com.spring.configuration.ConfigLoader;
 

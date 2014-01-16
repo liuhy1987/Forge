@@ -4,11 +4,11 @@
 package com.assemsoft.forge.database;
 
 import com.assemsoft.forge.database.instances.IDataBase;
-import com.assemsoft.forge.model.Task;
-import com.assemsoft.forge.model.TaskType;
+import com.assemsoft.forge.queue.Task;
+import com.assemsoft.forge.queue.TaskFactory;
+import com.assemsoft.forge.queue.TaskType;
 import com.assemsoft.forge.services.AbsService;
 import com.assemsoft.forge.util.SpringUtil;
-import com.assemsoft.forge.util.TaskFactory;
 
 /**
  * @author liuhy

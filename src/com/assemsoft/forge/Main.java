@@ -6,9 +6,9 @@ package com.assemsoft.forge;
 import java.util.UUID;
 
 import com.assemsoft.forge.core.ForgeMC;
-import com.assemsoft.forge.model.Task;
-import com.assemsoft.forge.model.TaskType;
+import com.assemsoft.forge.queue.Task;
 import com.assemsoft.forge.queue.TaskQueue;
+import com.assemsoft.forge.queue.TaskType;
 import com.assemsoft.forge.util.SpringUtil;
 
 /**

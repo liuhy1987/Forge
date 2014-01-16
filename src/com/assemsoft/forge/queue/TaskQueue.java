@@ -3,7 +3,6 @@ package com.assemsoft.forge.queue;
 import java.util.Collection;
 import java.util.concurrent.ArrayBlockingQueue;
 
-import com.assemsoft.forge.model.Task;
 import com.spring.configuration.ConfigLoader;
 
 public class TaskQueue {

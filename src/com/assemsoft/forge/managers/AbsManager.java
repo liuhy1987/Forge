@@ -4,7 +4,7 @@
 package com.assemsoft.forge.managers;
 
 import com.assemsoft.forge.core.ServiceFactory;
-import com.assemsoft.forge.model.Task;
+import com.assemsoft.forge.queue.Task;
 import com.assemsoft.forge.queue.TaskQueue;
 import com.assemsoft.forge.services.IService;
 

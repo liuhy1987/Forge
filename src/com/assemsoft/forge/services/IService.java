@@ -3,7 +3,7 @@
  */
 package com.assemsoft.forge.services;
 
-import com.assemsoft.forge.model.Task;
+import com.assemsoft.forge.queue.Task;
 
 /**
  * @author liuhy
